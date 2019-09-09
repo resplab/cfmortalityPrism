@@ -7,11 +7,11 @@
 #' @param model_input A list/json object with "patient_data", "random_sampling_N", "random_distribution_iteration",
 #' and "calculate_CIs" as columns
 #' @return Returns a list of results
-model_run<-function(model_input=NULL)
+model_run<-function(...)
 {
 
   
-    results <- predictCFMortality(model_input)
+    results <- predictCFMortality(...)
     
     return(as.list(results))
 }

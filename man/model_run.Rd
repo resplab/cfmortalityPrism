@@ -4,7 +4,7 @@
 \alias{model_run}
 \title{Run ACCEPT Model}
 \usage{
-model_run(model_input = NULL)
+model_run(...)
 }
 \arguments{
 \item{model_input}{A list/json object with "patient_data", "random_sampling_N", "random_distribution_iteration",

@@ -1,11 +1,10 @@
+## v0.2.0 2019-09-09
 
 get_my_name<-function()
 {
   x<-getPackageName()
   return(x)
 }
-
-
 
 thisSession<-new.env()
 
@@ -34,15 +33,11 @@ connect_redis_prism <- function (){
 }
 
 
-
-
 #' @export
 test<-function(...)
 {
   return(get_my_name())
 }
-
-
 
 
 #FOR ONE SHOT JSON CALL!
@@ -90,18 +85,11 @@ gateway<-function(...)
 }
 
 
-
-
-
 #' @export
-prism_model_run<-function(model_input=NULL)
+prism_model_run<-function(...)
 {
-  return(model_run(model_input))
+  return(model_run(...))
 }
-
-
-
-
 
 
 save_session<-function(session_id)
@@ -120,10 +108,6 @@ save_session<-function(session_id)
 }
 
 
-
-
-
-
 restore_session<-function(session_id)
 {
   if(!thisSession$MODE_REQUIRE_SESSION_DATA) return()
@@ -137,10 +121,6 @@ restore_session<-function(session_id)
     }
   }
 }
-
-
-
-
 
 
 #In API-based use without session ids this might seem a bit reduntant (it will not be required). But still good to check model availability
@@ -172,11 +152,6 @@ connect_to_model<-function(api_key="")
   return(out)
 }
 
-
-
-
-
-
 disconnect_from_model<-function()
 {
   if(!is.null(session_id) && session_id!="")
@@ -194,13 +169,6 @@ disconnect_from_model<-function()
     return(FALSE)
   }
 }
-
-
-
-
-
-
-
 
 
 #Checks if the submitted api_key has the privilge to access the model. 
@@ -224,26 +192,11 @@ check_access<-function(api_key="", session_id="", func=NULL)
 }
 
 
-
-
-
-
-
 generate_session_id<-function()
 {
   id<-paste(c(sample(letters,1) , sample(c(letters,0:9),9,TRUE)),collapse="")
   return(id)
 }
-
-
-
-
-
-
-
-
-
-
 
 
 #' @export
@@ -266,13 +219,6 @@ model_run.long<-function(input)
 }
 
 
-
-
-
-
-
-
-
 #' @export
 prism_check_run_progress<-function()
 {
@@ -292,15 +238,6 @@ prism_check_run_progress<-function()
 }
 
 
-
-
-
-
-
-
-
-
-
 #This function is called by model code in a different R process. sesssion_infor should be passed from one process to another.
 #' @export
 prism_set_run_progress<-function(value)
@@ -312,13 +249,6 @@ prism_set_run_progress<-function(value)
   
   set_redis_var(key,value)
 }
-
-
-
-
-
-
-
 
 #' @export
 prism_get_output_structure<-function()
@@ -337,8 +267,6 @@ prism_get_output_structure<-function()
   )
   return(out)
 }
-
-
 
 ####################Redis example
 
@@ -359,16 +287,11 @@ get_redis_var<-function(variable)
 }
 
 
-
 delete_redis_var<-function(variable)
 {
   connect_redis_prism()
   rredis::redisDelete(variable)
 }
-
-
-
-
 
 set_var<-function(variable,value)
 {
@@ -380,47 +303,3 @@ get_var<-function(variable)
 {
   return(.GlobalEnv[[variable]])
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#######################################LONG RUN functions###############
-#This is just a placeholder. These functions should not be here!
-
-#browses through rredis for all <session_id:staus,0> pairs and call model run
-prism_patrol<-function()
-  
-  
-  
-  model_run.long<-function(session_id)
-  {
-    
-  }
