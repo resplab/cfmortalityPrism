@@ -255,15 +255,6 @@ prism_get_output_structure<-function()
 {
   out<-list(
     n_agents=prism_output(source="$n_agents", type = "numeric/scalar", group = "", title = "Number of simulated individuals", description = ""),
-    cumul_time=prism_output(source="$cumul_time",type = "numeric/scalar", title = "cumulative time"),
-    n_deaths=prism_output(source="$n_deaths",type = "numeric/scalar", title = "number of deaths"),
-    n_COPD=prism_output(source="$n_COPD",type = "numeric/scalar", title = "Number of patients with COPD"),
-    total_exac=prism_output(source="$total_exac",type = "numeric/vector", title = "Total number of exacerbations by severity"),
-    total_exac_time=prism_output(source="$total_exac_time",type = "numeric/vector", title = "total_exac_time"),
-    total_pack_years=prism_output(source="$total_pack_years",type = "numeric/scalar", title = "Total pack-years"),
-    total_doctor_visit=prism_output(source="$total_doctor_visit",type = "numeric/vector", title = "Total doctor visits"),
-    total_cost=prism_output(source="$total_cost",type = "numeric/scalar", title = "Total costs"),
-    total_qaly=prism_output(source="$total_qaly",type = "numeric/scalar", title = "Total QALY")
   )
   return(out)
 }
