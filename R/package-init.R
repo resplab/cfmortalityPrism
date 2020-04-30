@@ -1,5 +1,5 @@
 #' @import jsonlite
-#' @import CFMortality
+#' @import cfmortality
 #' @import rredis
 #' @importFrom tibble as_tibble
 NULL

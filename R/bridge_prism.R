@@ -12,7 +12,7 @@ model_run<-function(model_input = NULL)
 
     input<-unflatten_list(model_input)
   
-    results <- predictCFMortality(age                    =model_input$age,                  
+    results <- predictcfmortality(age                    =model_input$age,                  
                                   male                   =model_input$male,                  
                                   fvc                    =model_input$fvc,                  
                                   fev1                   =model_input$fev1,                  
