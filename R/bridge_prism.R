@@ -27,7 +27,7 @@ model_run<-function(model_input = NULL)
     return(as.list(results))
 }
 
-get_default_input <- function() {
+prism_get_default_input <- function() {
   model_input <- list(age                    = 16, 
                       male                   = 0, 
                       fvc                    = 66.7, 
